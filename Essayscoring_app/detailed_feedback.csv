@@ -1,0 +1,11 @@
+Reg.No.,Question,score,Feedback
+REG202511,Explain the difference between lists and tuples in Python.,8.0,Excellent response! Demonstrates a strong understanding of the concept.
+REG202511,Describe the role of indentation in Python.,8.4,Excellent response! Demonstrates a strong understanding of the concept.
+REG202511,What are Python's built-in data types?,10.0,Excellent response! Demonstrates a strong understanding of the concept.
+REG202511,Explain how Python handles memory management.,6.0,Good response. Minor improvements could enhance clarity and depth.
+REG202511,"What are Python decorators, and how are they used?",7.0,Good response. Minor improvements could enhance clarity and depth.
+REG202511,What is the difference between deep copy and shallow copy in Python?,6.0,Good response. Minor improvements could enhance clarity and depth.
+REG202511,What are Python modules and packages?,8.0,Excellent response! Demonstrates a strong understanding of the concept.
+REG202511,Explain the Global Interpreter Lock (GIL) in Python.,8.0,Excellent response! Demonstrates a strong understanding of the concept.
+REG202511,How does exception handling work in Python?,7.6,Good response. Minor improvements could enhance clarity and depth.
+REG202511,How do you create a virtual environment in Python?,4.31,"Fair response. Needs further development and elaboration on key points. Consider including these keywords: python -m venv env_name, isolating, dependencies, run, ."
