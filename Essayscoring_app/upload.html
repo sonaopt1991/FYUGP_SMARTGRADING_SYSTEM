@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Responses</title>
+</head>
+<body>
+    <h1>Essay Questions</h1>
+    <ul>
+        {% for question in questions %}
+        <li>{{ question }}</li>
+        {% endfor %}
+    </ul>
+    
+    <h2>Upload Your Responses</h2>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="response_file" required>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>
+
+
