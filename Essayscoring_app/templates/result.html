@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grading Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .total-score {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .feedback {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Essay Grading Results</h1>
+
+    <p class="total-score">Total Score: {{ total_score }}</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Question</th>
+                <th>Score</th>
+                <th>Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in questions %}
+                <tr>
+                    <td>{{ question['Question'] }}</td>
+                    <td>{{ question['score'] }}</td>
+                    <td>{{ question['Feedback'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!div class="feedback">
+        <h3>Overall Feedback:</h3>
+        <p>{{ overall_feedback }}</p>
+    </!div>
+
+</body>
+</html>
