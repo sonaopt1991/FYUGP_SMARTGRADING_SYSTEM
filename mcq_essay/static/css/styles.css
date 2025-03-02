@@ -1,0 +1,155 @@
+/* General Page Style */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('/static/images/edu.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Container - Centered Box */
+.container {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    margin: 50px auto;
+    width: 90%;
+    max-width: 500px;
+}
+
+/* Buttons */
+.btn, .sidebar-btn {
+    padding: 12px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.btn:hover, .sidebar-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Special Logout Button */
+.sidebar-btn.logout {
+    background-color: #dc3545;
+}
+
+.sidebar-btn.logout:hover {
+    background-color: #c82333;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Image */
+img {
+    margin: 20px auto;
+    max-width: 90%;
+    height: auto;
+}
+
+/* Links */
+a {
+    margin: 10px;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
+
+/* Form Inputs */
+input {
+    margin: 10px;
+    padding: 10px;
+    width: 80%;
+}
+
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Faculty Dashboard Layout */
+.dashboard-container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 50px auto;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Sidebar Buttons (Full Width) */
+.sidebar-btn {
+    width: 100%;
+    text-align: left;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: #f8f9fa;
+    overflow-y: auto;
+}
+
+.main-content h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.main-content p {
+    font-size: 16px;
+    color: #555;
+}
+

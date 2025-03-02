@@ -1,0 +1,12 @@
+Response
+"Lists changeable, tuples not. Lists [], tuples (). Tuples faster."
+"Python needs indentation to group code, otherwise error."
+"Numbers, strings, lists, dicts, sets, and bools."
+Python clears unused memory with garbage collection.
+Decorators modify function without changing code. Use @.
+"Shallow copy shares inner objects, deep copy does not."
+"Modules are files, packages are folders with __init__.py."
+GIL stops more than one thread from running Python.
+Use try-except to catch errors and avoid breaking code.
+Initializes variables in a class when an object is made.
+Type `python -m venv envname` to create a venv.
