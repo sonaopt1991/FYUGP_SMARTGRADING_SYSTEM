@@ -1,0 +1,12 @@
+Question,Response
+Explain the difference between lists and tuples in Python.,"Lists are dynamic and can be altered after creation, whereas tuples remain constant once defined. Lists use [], while tuples use (). Tuples are generally faster than lists."
+Describe the role of indentation in Python.,"Python enforces indentation to define code blocks, ensuring structure and readability. Unlike languages that use curly braces, Python relies solely on indentation."
+What are Python's built-in data types?,"Python has various built-in types: int, float, complex for numbers; list, tuple, range for sequences; str for text; set, frozenset for sets; dict for mappings; and bool for booleans."
+Explain how Python handles memory management.,Python manages memory using automatic garbage collection and reference counting. It ensures unused objects are removed to free up memory.
+"What are Python decorators, and how are they used?",A decorator is a function that modifies another function's behavior without altering its definition. It is applied using the @ symbol.
+What is the difference between deep copy and shallow copy in Python?,"Shallow copies copy an object but not its nested elements, whereas deep copies create a completely independent duplicate, including all nested objects."
+What are Python modules and packages?,"A module is a Python script with reusable code, while a package is a collection of modules in a directory containing an __init__.py file."
+Explain the Global Interpreter Lock (GIL) in Python.,"The GIL allows only one thread to execute at a time in Python, restricting true multi-threading but enabling multi-processing as an alternative."
+How does exception handling work in Python?,"Python uses try-except blocks for error handling. The try block contains the risky code, and the except block defines how to handle exceptions."
+What is the purpose of the `__init__` method in Python classes?,The __init__ method initializes an instance’s attributes when an object is created from a class.
+How do you create a virtual environment in Python?,"Run `python -m venv env_name` to create a virtual environment, isolating project dependencies."
