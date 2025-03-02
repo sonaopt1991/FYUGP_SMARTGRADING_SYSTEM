@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Essay Response</title>
+    <link rel="stylesheet" href="/static/css/styles1.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <h2>Welcome, {{ session['username'] }}</h2>
+            <ul>
+                <li><a href="{{ url_for('mcq') }}">MCQ Test</a></li>
+                <li><a href="{{ url_for('upload_response') }}">Essay Test</a></li>
+                <li><a href="{{ url_for('view_results') }}">View Results</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Upload Your Essay Response</h1>
+            <form action="{{ url_for('upload_response') }}" method="POST" enctype="multipart/form-data">
+                <input type="file" name="response_file" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
