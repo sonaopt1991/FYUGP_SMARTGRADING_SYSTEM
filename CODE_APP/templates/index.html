@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Code Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        pre {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Code Feedback</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Question</th>
+                <th>Student Code</th>
+                <th>AI Feedback</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in feedback_data %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item.Question }}</td>
+                <td><pre>{{ item.student_code }}</pre></td>
+                <td>{{ item.feedback | replace('\n', '<br>') | safe }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
