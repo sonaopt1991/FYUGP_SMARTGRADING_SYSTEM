@@ -39,10 +39,10 @@ This is a Flask-based web application for conducting multiple-choice quizzes. Th
 - pandas
 ## combined mcq and essay scoring app
 ## overview 
---student dashboard is added ,where student can choose from mcq,essay test options,they can view there result after attending the test.plot is also included and an option to export the result page as pdf.
----faculty dashboard is included where faculty can view the results of all student in table format and option to download it as pdf.
----option to view result as barchart .
------for student essay evaluation used BERT TRANSFORMER model 
+- student dashboard is added ,where student can choose from mcq,essay test options,they can view there result after attending the test.plot is also included and an option to export the result page as pdf.
+- faculty dashboard is included where faculty can view the results of all student in table format and option to download it as pdf.
+- option to view result as barchart .
+- for student essay evaluation used BERT TRANSFORMER model 
 ## Requirements
 
 - Python 3.9
@@ -66,6 +66,6 @@ Gemini 1.5 App is a web application that provides AI-generated feedback on stude
 - **Overall Score**: Provides an overall score out of 10 for each code submission.
   ## Requirements
 
-  --dotenv
-  --gemini1.5 api key
+  - dotenv
+  - gemini1.5 api key
   
