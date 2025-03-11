@@ -1,0 +1,37 @@
+Instruction,Response
+Create a program in Python that takes an integer and prints out the Fibonacci sequence up to the given integer.,"def fibonacci(num):
+    a, b = 0, 1
+    while a <= num:
+        print(a, end=' ')
+        a, b = b, a + b"
+Develop a python program to calculate the average score of a student over the course of a semester.,"def avg_score(scores):
+    return sum(scores) / len(scores)"
+Develop a function to search for a value in a list.,"def search_list(lst, value):
+    return value in lst"
+Generate a new Python list with the squared value of each element in a given list.,"def squared_list(lst)
+    return [x**2 for x in lst]"
+Write a python program that creates and prints a range of numbers.,"for number in range(0, 11, 2)
+    print(number)"
+Create a web scraper in Python that loads a website page and extracts a particular string of text.,"import requests
+url = 'https://www.example.com'
+page = requests.get(url)
+print(page.content)"
+Design an algorithm in Python for finding and printing all prime numbers between 1 and a given number.,"def find_all_primes(n)
+    for num in range(2, n + 1):
+        print(num)"
+Write a Python program to count words in a sentence. The program should take in a sentence as input and return a dictionary with the words as the keys and the frequencies as the values.,"def count_words(sentence)
+    words = sentence.split()
+    return len(words)"
+Write a python program to print the following pattern.,"def pattern(n):
+    for i in range(n):
+        print('* ' * (n-i))"
+Create a webhook in Python to handle incoming HTTP POST requests. This webhook should process the JSON payload in the POST request and log the output to console.,"from flask import Flask, request
+import json
+app = Flask(__name__)
+@app.route('/webhook', methods=['POST'])
+def webhook():
+    payload = json.loads(request.data)
+    print(payload)
+    return 'OK'
+if __name__ == '__main__':
+    app.run(debug=True)"
