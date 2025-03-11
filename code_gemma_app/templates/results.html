@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Code Evaluation Feedback</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        table, th, td { border: 1px solid #ddd; }
+        th { background-color: #4CAF50; color: white; }
+        th, td { padding: 10px; text-align: left; }
+        .download-btn { display: block; margin: 20px 0; padding: 10px 20px; background: #4CAF50; color: white; text-decoration: none; }
+        .download-btn:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <h2>Code Evaluation Feedback</h2>
+
+    {% if feedback_data %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Student Code</th>
+                    <th>Feedback</th>
+                    <th>Score (Out of 10)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in feedback_data %}
+                    <tr>
+                        <td>{{ data["Question"] }}</td>
+                        <td><pre>{{ data["Student Code"] }}</pre></td>
+                        <td>{{ data["Feedback"] }}</td>
+                        <td>{{ data["Score (Out of 10)"] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('download') }}" class="download-btn">Download Evaluated Feedback CSV</a>
+    {% else %}
+        <p>No feedback available.</p>
+    {% endif %}
+</body>
+</html>
