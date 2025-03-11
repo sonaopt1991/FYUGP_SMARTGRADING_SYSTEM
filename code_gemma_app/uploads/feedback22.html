@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; }
+        .response-container { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 8px; background: #f9f9f9; }
+        .question { font-weight: bold; color: #333; }
+        .code-block { background: #eee; padding: 10px; border-radius: 5px; font-family: monospace; white-space: pre-wrap; }
+        .feedback { margin-top: 10px; line-height: 1.5; }
+        .score { font-weight: bold; color: #d9534f; }
+        .total-score { font-size: 18px; font-weight: bold; color: #0275d8; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h2>Evaluation Results</h2>
+
+    {% for item in feedback_data %}
+    <div class="response-container">
+        <p class="question">🔹 <strong>Question:</strong> {{ item.question }}</p>
+        <p><strong>Student Code:</strong></p>
+        <pre class="code-block">{{ item.student_code }}</pre>
+
+        <p><strong>Feedback:</strong></p>
+        <div class="feedback">
+            <p><strong>Complete Feedback:</strong></p>
+            <pre class="code-block">{{ item.feedback }}</pre>
+            
+            {% if '**Correctness:**' in item.feedback %}
+                <p>✅ <strong>Correctness:</strong> {{ item.feedback.split('**Correctness:**')[1].split('**Efficiency:**')[0].strip() }}</p>
+            {% else %}
+                <p>✅ <strong>Correctness:</strong> No specific feedback on correctness.</p>
+            {% endif %}
+            
+            {% if '**Efficiency:**' in item.feedback %}
+                <p>⚡ <strong>Efficiency:</strong> {{ item.feedback.split('**Efficiency:**')[1].split('**Readability:**')[0].strip() }}</p>
+            {% else %}
+                <p>⚡ <strong>Efficiency:</strong> No specific feedback on efficiency.</p>
+            {% endif %}
+
+            {% if '**Readability:**' in item.feedback %}
+                <p>📖 <strong>Readability:</strong> {{ item.feedback.split('**Readability:**')[1].split('**Possible improvements:**')[0].strip() }}</p>
+            {% else %}
+                <p>📖 <strong>Readability:</strong> No specific feedback on readability.</p>
+            {% endif %}
+
+            {% if '**Possible improvements:**' in item.feedback %}
+                <p>🛠️ <strong>Possible Improvements:</strong> {{ item.feedback.split('**Possible improvements:**')[1].split('**Overall score:**')[0].strip() }}</p>
+            {% else %}
+                <p>🛠️ <strong>Possible Improvements:</strong> No specific improvements mentioned.</p>
+            {% endif %}
+        </div>
+
+        <p class="score">🎯 <strong>Overall Score:</strong> {{ item.score }}/10</p>
+    </div>
+    {% endfor %}
+
+    <hr>
+    {% set total_score = feedback_data | sum(attribute="score") %}
+    <h3 class="total-score">🏆 Total Score for All Responses: {{ total_score }}/{{ feedback_data|length * 10 }}</h3>
+
+    <br>
+    <a href="{{ url_for('upload_file') }}">⬅ Go Back to Home</a>  
+</body>
+</html>
