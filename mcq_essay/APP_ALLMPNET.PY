@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 import pandas as pd
 import nltk
 import os
+#from sentence_transformers import SentenceTransformer
 from transformers import AutoTokenizer, AutoModel
 import torch
 import string
@@ -12,16 +13,21 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import matplotlib.pyplot as plt
+import torch
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 
 from faculty_routes import faculty_bp
 # Initialize the Flask App
 app = Flask(__name__)
 app.secret_key = '123545'
 
-# Load models for essay test
-model_name = "sentence-transformers/all-MiniLM-L6-v2"
+# Load MPNet model for sentence encoding using sentence-transformers
+model_name = "sentence-transformers/all-mpnet-base-v2"
+#model = SentenceTransformer(model_name)
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModel.from_pretrained(model_name)
+
 # Register Faculty Blueprint
 app.register_blueprint(faculty_bp, url_prefix='/faculty')
 # Load data for MCQ test
@@ -29,36 +35,78 @@ credentials_df = pd.read_csv("USERS.csv")
 questions_df_mcq = pd.read_excel("Book2.xlsx")  # MCQ questions and options
 questions_df_essay = pd.read_csv('essayquestion.csv')  # Essay test questions and model answers
 
+# # Preprocessing functions for essay test
+# lemmatizer = WordNetLemmatizer()
+
+# def preprocess_text(text):
+#     text = text.lower().translate(str.maketrans('', '', string.punctuation))
+#     tokens = word_tokenize(text)
+#     tokens = [lemmatizer.lemmatize(word) for word in tokens if word not in stopwords.words('english')]
+#     return set(tokens)
+
+# # MPNet-based similarity calculation
+# def compute_transformer_similarity(model_answers, student_answer):
+#     def get_embedding(text):
+#         embedding = model.encode(text)  # Direct sentence embedding with SentenceTransformer
+#         return embedding
+
+#     student_embedding = get_embedding(student_answer)
+#     similarities = [cosine_similarity([student_embedding], [get_embedding(ans)])[0][0] for ans in model_answers]
+#     return similarities
+from transformers import AutoTokenizer, AutoModel
+import torch
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Initialize the tokenizer and model
+tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-mpnet-base-v2')
+model = AutoModel.from_pretrained('sentence-transformers/all-mpnet-base-v2')
+
 # Preprocessing functions for essay test
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+import string
+from nltk.stem import WordNetLemmatizer
+
 lemmatizer = WordNetLemmatizer()
 
 def preprocess_text(text):
+    """
+    Preprocess the text by lowercasing, removing punctuation, tokenizing, and lemmatizing.
+    """
     text = text.lower().translate(str.maketrans('', '', string.punctuation))
     tokens = word_tokenize(text)
     tokens = [lemmatizer.lemmatize(word) for word in tokens if word not in stopwords.words('english')]
     return set(tokens)
 
-def compute_tfidf_similarity(model_answers, student_answer):
-    vectorizer = TfidfVectorizer()
-    tfidf_matrix = vectorizer.fit_transform(model_answers + [student_answer])
-    similarities = cosine_similarity(tfidf_matrix[-1], tfidf_matrix[:-1])[0]
-    return similarities
-
+# MPNet-based similarity calculation
 def compute_transformer_similarity(model_answers, student_answer):
+    """
+    Compute cosine similarity between the student answer and model answers using MPNet embeddings.
+    """
     def get_embedding(text):
+        """
+        Get the embedding for a text using the MPNet model.
+        """
+        # Tokenize and get the model's output
         inputs = tokenizer(text, padding=True, truncation=True, return_tensors="pt")
         with torch.no_grad():
             outputs = model(**inputs)
-        attention_mask = inputs['attention_mask']
-        embeddings = outputs.last_hidden_state
-        mask = attention_mask.unsqueeze(-1).expand(embeddings.size()).float()
-        masked_embeddings = embeddings * mask
-        summed = torch.sum(masked_embeddings, dim=1)
-        summed_mask = torch.clamp(mask.sum(dim=1), min=1e-9)
-        return summed / summed_mask
+        
+        # Mean-pooling the embeddings (average of the hidden states)
+        embeddings = outputs.last_hidden_state.mean(dim=1)
+        return embeddings
 
+    # Get the embedding of the student answer
     student_embedding = get_embedding(student_answer)
-    similarities = [torch.cosine_similarity(student_embedding, get_embedding(ans)).item() for ans in model_answers]
+    
+    # Calculate similarity between student answer and each model answer
+    similarities = []
+    for ans in model_answers:
+        ans_embedding = get_embedding(ans)
+        similarity = cosine_similarity(student_embedding.cpu().numpy(), ans_embedding.cpu().numpy())[0][0]
+        similarities.append(similarity)
+    
     return similarities
 
 # MCQ Grader class for objective test
