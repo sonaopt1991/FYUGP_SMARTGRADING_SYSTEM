@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Faculty Dashboard</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+
+        /* Dashboard Container */
+        .dashboard-container {
+            display: flex;
+            height: 100vh;
+            background-color: #f0f2f5;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            background-color: #3b4c5a; /* Dark sidebar color */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            padding: 10px;
+            background-color: #5a6e7f;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .sidebar-btn {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            background-color: #17a2b8; /* Teal button */
+            color: white;
+            border: none;
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar-btn:hover {
+            background-color: #138496; /* Darker teal on hover */
+        }
+
+        /* Logout Button Specific */
+        .sidebar-btn.logout {
+            background-color: #dc3545;
+        }
+
+        .sidebar-btn.logout:hover {
+            background-color: #c82333;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            flex-grow: 1;
+            padding: 30px;
+            background-color: white;
+            overflow-y: auto;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .main-content h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .main-content p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Responsive for smaller screens */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .sidebar {
+                width: 100%;
+                text-align: center;
+            }
+
+            .sidebar-btn {
+                text-align: center;
+            }
+
+            .main-content {
+                padding: 20px;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body class="faculty-dashboard">
+
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <h2>Welcome, Faculty {{ session['username'] }}</h2>
+        <nav>
+            <button class="sidebar-btn" onclick="window.location.href='{{ url_for('faculty.faculty_view_results') }}'">📊 View Student Results (Table)</button>
+            <button class="sidebar-btn" onclick="window.location.href='{{ url_for('faculty.faculty_view_plots') }}'">📈 View Student Scores (Plot)</button>
+            <button class="sidebar-btn logout" onclick="window.location.href='{{ url_for('faculty.faculty_logout') }}'">🚪 Logout</button>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <h1>Faculty Dashboard</h1>
+        <p>Please select an option from the sidebar.</p>
+    </main>
+</div>
+
+</body>
+</html>

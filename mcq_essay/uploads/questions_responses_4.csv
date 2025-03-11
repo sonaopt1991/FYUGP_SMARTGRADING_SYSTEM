@@ -1,0 +1,12 @@
+Question,Response
+Explain the difference between lists and tuples in Python.,"Lists can be changed, but tuples cannot. Lists use [], and tuples use (). Tuples are quicker."
+Describe the role of indentation in Python.,"Python uses indentation to organize code. Without correct indentation, code won't run."
+What are Python's built-in data types?,"Python has numbers, text, lists, sets, dictionaries, and boolean types."
+Explain how Python handles memory management.,Python removes unused objects automatically with garbage collection.
+"What are Python decorators, and how are they used?",A decorator changes how a function behaves and is applied with @.
+What is the difference between deep copy and shallow copy in Python?,Shallow copy copies only the outer object; deep copy copies everything inside too.
+What are Python modules and packages?,A module is one Python file; a package is a group of modules with an __init__.py.
+Explain the Global Interpreter Lock (GIL) in Python.,GIL stops multiple threads from running Python code at once.
+How does exception handling work in Python?,Python uses try-except to handle errors and avoid crashes.
+What is the purpose of the `__init__` method in Python classes?,It initializes variables when creating an object.
+How do you create a virtual environment in Python?,Run `python -m venv myenv` to create an isolated environment.
