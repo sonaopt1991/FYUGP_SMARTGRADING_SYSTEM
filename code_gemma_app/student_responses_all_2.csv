@@ -1,4 +1,4 @@
-Instruction,Response
+Question,Response
 Create a program in Python that takes an integer and prints out the Fibonacci sequence up to the given integer.,"def fibonacci(num):
     a, b = 0, 1
     while a < num:
