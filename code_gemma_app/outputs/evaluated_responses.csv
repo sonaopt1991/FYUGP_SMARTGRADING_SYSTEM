@@ -1,0 +1,61 @@
+Question,Student Code,Feedback,Score (Out of 10)
+Develop a python program to calculate the average score of a student over the course of a semester.,"def avg_score(scores)
+    total = 0
+    for score in scores:
+        total += score
+    return total / len(scores)","**Feedback:**
+
+**Correctness:** The code correctly calculates the average score by summing up the scores in the `scores` list and dividing by the number of scores.
+
+**Efficiency:** The time complexity of this algorithm is O(n), where n is the number of scores in the list. This is because it iterates over the list and adds each score to a variable `total`.
+
+**Readability:** The code is easy to understand and follows good coding practices. It uses meaningful variable names and comments to explain the purpose of the code.
+
+**Improvements:**
+
+- **Use a named constant for the total variable instead of `total`.** This makes the code more readable and avoids shadowing the original variable.
+- **Use a `return` statement to explicitly specify the average score.** This improves readability and makes it clear what the function is supposed to do.
+- **Use a `contextlib` to open and close the `scores` list to ensure that it is properly closed even if an error occurs.** This prevents the need to manually call `close()` on the list.
+
+**Overall score: 8/10**
+
+**Additional notes:**
+
+- The code could be made more robust by handling cases where the `scores` list is empty.
+- It would be more efficient to use the `sum()` function with a generator expression to calculate the average score.",8
+Generate a new Python list with the squared value of each element in a given list.,"def squared_list(lst)
+    return [x**2 for x in lst]","## Feedback on the code:
+
+**Correctness:** The code performs the required task, calculates the squared value of each element, and returns a new list with the squared values.
+
+**Efficiency:** The code's time complexity is O(n), where n is the length of the input list, as it iterates over the list and square each element. This makes it efficient for large lists.
+
+**Readability:** The code is generally well-written and easy to understand. The variable name `squared_list` is clear and describes the purpose of the function. The use of square brackets for list comprehension is also good practice.
+
+**Potential improvements:**
+* Consider adding a docstring to describe the function's purpose and expected input and output types.
+* The function can be generalized to work with other data types besides numbers.
+* The code could benefit from using a more descriptive name for the function, such as `squared_values`.
+
+**Overall score: 8/10**
+
+The code meets the basic requirements of the question and demonstrates good understanding of basic programming concepts. However, the potential improvements listed could enhance its clarity and maintainability.",8
+Write a python program that creates and prints a range of numbers.,"for number in range(0, 11, 2):
+    print(number)","## Feedback for the student's code:
+
+**Correctness:** The code solves the problem by printing a range of numbers from 0 to 10, inclusive.
+
+**Efficiency:** The code is **O(n)**, where n is the number of elements in the range. This is because it iterates over a range of numbers and prints each number, which takes constant time.
+
+**Readability:** The code is **easy to read** and follows best practices for Python coding. It uses meaningful variable names and correctly uses newlines for readability.
+
+**Improvements:**
+
+* You could use a `for` loop with an `else` statement to print a different range of numbers, such as from 1 to 100.
+* You could use string formatting to print the numbers in a more human-readable format.
+* You could use the `range(start, stop, step)` function to create a range of numbers with a specific step value.
+
+**Overall score: 7/10**
+
+**Explanation:** The student's code is correct and solves the problem, but it could be improved by using different methods for achieving the same result.",7
+Total Score,,,23
