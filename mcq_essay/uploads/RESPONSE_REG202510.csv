@@ -1,0 +1,11 @@
+﻿Question,,Response
+Explain the difference between lists and tuples in Python.,,"Lists are mutable, meaning they can be modified after creation, whereas tuples are immutable. Lists are defined using square brackets [], while tuples use parentheses (). Tuples have faster performance compared to lists because they are immutable."
+Describe the role of indentation in Python.,,"Indentation in Python is used to define blocks of code. Unlike other languages that use braces {}, Python relies on indentation levels to structure code, ensuring readability and enforcing correct syntax."
+What are Python's built-in data types?,,"Python provides several built-in data types, including numeric types (int, float, complex), sequence types (list, tuple, range), text type (str), set types (set, frozenset), mapping type (dict), and boolean type (bool)."
+Explain how Python handles memory management.,,"Python uses automatic memory management with garbage collection. It employs reference counting and cyclic garbage collection to manage memory efficiently, ensuring that unused objects are freed."
+"What are Python decorators, and how are they used?",,Decorators are functions that modify the behavior of other functions without changing their code. They are applied using the '@' symbol before function definitions.
+What is the difference between deep copy and shallow copy in Python?,,"A shallow copy creates a new object but does not copy nested objects, while a deep copy creates a completely independent clone of an object, including nested elements."
+What are Python modules and packages?,,"A module is a single Python file containing functions and classes, while a package is a collection of modules organized in a directory with an __init__.py file."
+Explain the Global Interpreter Lock (GIL) in Python.,,The Global Interpreter Lock (GIL) ensures that only one thread executes Python bytecode at a time. It prevents true multi-threading but allows multi-processing as an alternative.
+How does exception handling work in Python?,,"Python handles exceptions using the try-except block. The 'try' block contains the code that may cause an error, while the 'except' block defines how the program should handle the error."
+How do you create a virtual environment in Python?,,"Run `python -m venv env_name` to create a virtual environment, isolating project dependencies."

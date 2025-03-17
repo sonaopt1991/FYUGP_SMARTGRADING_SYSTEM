@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
+    <link rel="stylesheet"  href="/static/css/result.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <h2>Welcome, {{ session['username'] }}</h2>
+            <ul>
+                <li><a href="{{ url_for('mcq') }}">MCQ Test</a></li>
+                <li><a href="{{ url_for('upload_response') }}">Essay Test</a></li>
+                <li><a href="{{ url_for('view_results') }}">View Results</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>Results</h1>
+            <p><strong>MCQ Score:</strong> {{ mcq_score }}</p>
+            <p><strong>Essay Score:</strong> {{ essay_score }}</p>
+            <p><strong>Total Score:</strong> {{ total_score }}</p>
+
+            <h2>Essay Feedback</h2>
+            {{ feedback_table | safe }}
+
+            <!-- Download Button -->
+            
+            <div class="download-section">
+                <a href="/static/results/feedback_{{ reg_no }}.csv" class="download-btn" download>Download Feedback as CSV</a>
+            </div>
+          
+        </div>
+    </div>
+</body>
+</html>

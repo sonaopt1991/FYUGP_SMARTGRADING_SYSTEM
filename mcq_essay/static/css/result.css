@@ -1,0 +1,200 @@
+/* General Styles */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #2c3e50;
+}
+
+/* Dashboard Layout */
+.dashboard {
+    display: flex;
+    height: 100vh;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background: #34495e;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.sidebar h2 {
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    width: 100%;
+    color: #ecf0f1;
+    font-weight: 600;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.sidebar ul li {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 12px 0;
+    background: #1abc9c;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background: #16a085;
+}
+
+/* Content Area */
+.content {
+    flex-grow: 1;
+    background: white;
+    margin: 15px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.content h1 {
+    font-size: 26px;
+    color: #34495e;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #1abc9c;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.content h2 {
+    font-size: 22px;
+    color: #2c3e50;
+    margin: 20px 0 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #555;
+}
+
+strong {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    padding: 8px;
+    text-align: center;
+    color: #555;
+}
+
+/* Download Button Styling */
+.download-section {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #27ae60;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.download-btn:hover {
+    background: #219150;
+}
+
+/* Score Plot Styling */
+.score-plot {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 15px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .dashboard {
+        display: block;
+        width: 100%;
+    }
+    .sidebar {
+        display: none;
+    }
+    .content {
+        width: 100%;
+        margin: 0;
+    }
+    .score-plot {
+        max-width: 100%;
+        height: auto;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 5px;
+        text-align: left;
+    }
+    h2 {
+        page-break-before: always;
+    }
+}

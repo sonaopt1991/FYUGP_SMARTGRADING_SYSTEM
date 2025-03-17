@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Student Scores Plot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/faculty_result.css') }}">
+
+</head>
+<body>
+
+<h2>Student Scores Plot</h2>
+<a href="{{ url_for('faculty.faculty_dashboard') }}" class="btn">Back to Dashboard</a>
+{% if plot_path %}
+    <img src="{{ url_for('static', filename='results/faculty_total_scores_plot.png') }}" alt="Student Scores Plot">
+    <button onclick="downloadPageAsPDF()" class="btn btn-success">
+        Download Page as PDF
+    </button>
+    <script>
+    function downloadPageAsPDF() {
+        window.print();
+    }
+    </script>
+{% else %}
+    <p>No data available for plotting.</p>
+{% endif %}
+
+</body>
+</html>
