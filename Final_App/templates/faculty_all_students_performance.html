@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Students' Performance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .dashboard-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .dashboard-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📊 All Students' Performance</h1>
+
+    <table>
+        <tr>
+            <th>Reg. No.</th>
+            <th>Name</th>
+            <th>Actual Score</th>
+            <th>Predicted Score</th>
+            <th>Stream Avg</th>
+            <th>Overall Avg</th>
+            <th>Stream Feedback</th>
+            <th>Overall Feedback</th>
+        </tr>
+        {% for student in student_performance %}
+        <tr>
+            <td>{{ student["Reg.No."] }}</td>
+            <td>{{ student["Name"] }}</td>
+            <td>{{student["Stream"]}}</td>
+            <td>{{student["Age"]}}</td>
+            <td>{{ student["Total Score"] }}</td>
+            <td>{{ student["Predicted Score"] }}</td>
+            <td>{{ student["Stream Avg"] }}</td>
+            <td>{{ student["Overall Avg"] }}</td>
+            <td>{{ student["Stream Feedback"] }}</td>
+            <td>{{ student["Overall Feedback"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br><br>
+    <a href="{{ csv_download_link }}" class="dashboard-button" download>⬇️ Download CSV</a>
+
+    <a href="{{ url_for('faculty.faculty_dashboard') }}" class="dashboard-button">⬅️ Back to Dashboard</a>
+
+</body>
+</html>

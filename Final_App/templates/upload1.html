@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Essay Response</title>
+    <link rel="stylesheet" href="/static/css/stylesU.css">
+</head>
+<body>
+    <div class="container">
+        <div class="upload-box">
+            <h1>Upload Your Response</h1>
+
+            <h2>Essay Questions</h2>
+            <ul class="question-list">
+                {% for question in questions %}
+                    <li>{{ question }}</li>
+                {% endfor %}
+            </ul>
+
+            <form method="POST" enctype="multipart/form-data">
+                <label for="response_file">Upload your response file:</label>
+                <input type="file" name="response_file" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

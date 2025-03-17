@@ -1,0 +1,13 @@
+pandas 
+matplotlib
+nltk
+torch
+scikit -learn
+lightgbm
+seaborn
+flask
+transformers
+numpy
+gemma 2b model 
+ollama
+

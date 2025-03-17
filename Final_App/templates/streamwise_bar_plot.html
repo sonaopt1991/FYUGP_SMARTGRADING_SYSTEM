@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream-wise Bar Plot</title>
+</head>
+<body>
+    <h2>Stream-wise Actual vs Predicted Performance</h2>
+    {% if plot_path %}
+        <img src="{{ plot_path }}" alt="Stream-wise Bar Plot">
+    {% else %}
+        <p>No data available for plotting.</p>
+    {% endif %}
+</body>
+</html>

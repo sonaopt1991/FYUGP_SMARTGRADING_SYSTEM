@@ -1,0 +1,6 @@
+flask 
+transformers 
+torch 
+pandas
+ollama
+gemma 2b

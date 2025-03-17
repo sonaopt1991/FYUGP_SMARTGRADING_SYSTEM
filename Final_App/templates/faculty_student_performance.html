@@ -1,0 +1,31 @@
+<!-- faculty_student_performance.html -->
+<h2>Performance for Student {{ reg_no }}</h2>
+<table>
+    <tr>
+        <td>Actual Score</td>
+        <td>{{ performance_feedback['Actual Score'] }}</td>
+    </tr>
+    <tr>
+        <td>Predicted Score</td>
+        <td>{{ performance_feedback['Predicted Score'] }}</td>
+    </tr>
+    <tr>
+        <td>Stream Avg Predicted Score</td>
+        <td>{{ performance_feedback['Stream Avg Predicted Score'] }}</td>
+    </tr>
+    <tr>
+        <td>Overall Avg Predicted Score</td>
+        <td>{{ performance_feedback['Overall Avg Predicted Score'] }}</td>
+    </tr>
+    <tr>
+        <td>Stream Performance Feedback</td>
+        <td>{{ performance_feedback['Stream Performance Feedback'] }}</td>
+    </tr>
+    <tr>
+        <td>Overall Performance Feedback</td>
+        <td>{{ performance_feedback['Overall Performance Feedback'] }}</td>
+    </tr>
+    <h3>Performance Comparison Chart</h3>
+<img src="{{ url_for('static', filename='results/student_' + reg_no | string + '_performance.png') }}" alt="Student Performance Chart">
+
+</table>

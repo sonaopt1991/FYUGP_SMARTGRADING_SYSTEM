@@ -1,0 +1,41 @@
+Question,Option A,Option B,Option C,Option D,Correct Option
+What is the output of `print(2 * 3 ** 2)`?,18,36,12,14,A
+Which of the following is used to define a block of code in Python?,{},[],(),Indentation,D
+What is the output of `print(type([]) is list)`?,True,False,None,Error,A
+Which of these is a mutable data type?,Tuple,String,List,Set,C
+Which module is used for regular expressions in Python?,regex,pyregex,re,regexp,C
+How do you create a dictionary in Python?,{},[],(),dict[],A
+What is the output of `bool([])`?,True,False,Error,None,B
+Which method removes an item from a list?,remove(),delete(),discard(),pop(),A
+Which of the following is not a valid variable name?,_var,2var,var_2,VarName,B
+Which of the following is used to open a file in read mode?,'r','w','rb','a',A
+What will `print(3 == 3.0)` output?,True,False,Error,None,A
+Which keyword is used for function definition in Python?,func,define,def,function,C
+Which statement is used to exit a loop?,stop,break,exit,return,B
+How do you start a comment in Python?,//,--,#,/*,C
+Which function is used to read input from the user?,input(),read(),scan(),cin(),A
+Which of the following is an immutable data type?,List,Set,Dictionary,Tuple,D
+How do you check the length of a list?,size(),length(),len(),count(),C
+Which operator is used for exponentiation?,^,**,*,//,B
+What is the output of `bool('False')`?,True,False,None,Error,A
+Which function converts a string to an integer?,int(),str(),float(),eval(),A
+How do you handle exceptions in Python?,using try-except,using error(),using exception(),using try-catch,A
+Which of the following is a Python framework for web development?,Django,Flask,Both A and B,None,C
+Which module is used to work with JSON in Python?,json,pickle,csv,os,A
+What is the output of `print(3 * 'abc')`?,abcabcabc,Error,abc*3,None,A
+Which of the following is a valid set declaration?,"{1,2,3}","[1,2,3]","(1,2,3)","'1,2,3'",A
+Which function is used to get the type of a variable?,typeof(),type(),varType(),getType(),B
+What does `os.getcwd()` do?,Deletes a file,Gets the current working directory,Creates a new folder,None,B
+Which keyword is used to define a class?,class,define,struct,cls,A
+Which of the following is not a valid Python data structure?,Queue,Stack,Heap,All are valid,D
+What is the output of `print(5//2)`?,2,2.5,3,2.0,A
+Which function is used to sort a list?,sort(),sorted(),Both A and B,None,C
+What is the purpose of `self` in a class method?,Refers to global variables,Refers to the instance,Refers to the superclass,None,B
+Which keyword is used to inherit a class?,inherit,extend,super,None,D
+Which function is used to convert an integer to a string?,int(),str(),string(),convert(),B
+What does `continue` do in a loop?,Skips the rest of the loop,Exits the loop,Repeats the loop,None,A
+Which module is used to work with dates and times?,time,datetime,date,calendar,B
+What is the purpose of `zip()`?,Combines multiple iterables,Creates a new list,Sorts elements,None,A
+Which function returns the maximum value?,max(),highest(),top(),biggest(),A
+How do you create a tuple with a single element?,"(1,)",(1),[1],{1},A
+
