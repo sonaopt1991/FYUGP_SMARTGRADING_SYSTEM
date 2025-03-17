@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Streamwise Performance</title>
+</head>
+<body>
+    <h2>Actual vs. Predicted Average Scores per Stream</h2>
+    {% if plot_path %}
+        <img src="{{ plot_path }}" alt="Streamwise Performance Plot">
+    {% else %}
+        <p>No data available.</p>
+    {% endif %}
+    <br><br>
+    <a href="{{ url_for('faculty1.faculty_dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

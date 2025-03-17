@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Evaluation</title>
+    <link rel="stylesheet" href="/static/css/code.css">
+</head>
+<body>
+    <div class="container">
+        <div class="upload-box">
+            <h2>Upload CSV File for Code Evaluation</h2>
+            
+            <h3>Questions</h3>
+            <ul>
+                {% for question in questions %}
+                    <li>{{ question }}</li>
+                {% endfor %}
+            </ul>
+
+            
+            <form action="{{ url_for('coding_evaluation.upload_file') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <button type="submit">Upload & Evaluate</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
