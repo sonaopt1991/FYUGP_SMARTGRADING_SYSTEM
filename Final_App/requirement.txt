@@ -7,3 +7,7 @@ lightgbm
 seaborn
 flask
 transformers
+numpy
+gemma 2b model 
+ollama
+
