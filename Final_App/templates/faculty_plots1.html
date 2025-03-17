@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Analysis</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Performance Analysis</h1>
+
+        <!-- Top Students Bar Chart -->
+        <div class="chart-section">
+            <h2>Top Students Performance</h2>
+            <img src="{{ top_students_chart }}" alt="Top Students Bar Chart">
+        </div>
+
+        <!-- Score Distribution Box Plot -->
+        <div class="chart-section">
+            <h2>Score Distribution</h2>
+            <img src="{{ box_plot_chart }}" alt="Student Score Distribution Box Plot">
+        </div>
+
+        <!-- Score Histogram -->
+        <div class="chart-section">
+            <h2>Score Histogram</h2>
+            <img src="{{ histogram_chart }}" alt="Student Score Histogram">
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="button-section">
+            <button id="downloadPdf">📥 Download as PDF</button>
+            <a href="{{ url_for('faculty1.faculty_dashboard') }}" class="back-btn">⬅ Back to Dashboard</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('downloadPdf').addEventListener('click', function () {
+            const element = document.querySelector('.container');
+            html2pdf().from(element).save('Student_Performance_Analysis.pdf');
+        });
+    </script>
+</body>
+</html>

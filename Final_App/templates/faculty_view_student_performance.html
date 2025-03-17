@@ -1,0 +1,59 @@
+{% if 'username' not in session or session.get('role') != 'faculty' %}
+    <script>window.location.href = "{{ url_for('faculty1.faculty_login') }}";</script>
+{% endif %}
+
+<!-- Display Flash Messages -->
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<!-- Student Performance Search Form -->
+<form method="POST" action="{{ url_for('faculty1.faculty_view_student_performance') }}" class="form-group">
+    <label for="reg_no" class="form-label">Enter Student Registration Number:</label>
+    <input type="text" id="reg_no" name="reg_no" class="form-control" required>
+    <button type="submit" class="btn btn-primary mt-2">View Performance</button>
+</form>
+
+{% if reg_no %}
+    <h2>Student Performance - {{ reg_no }}</h2>
+    
+    <!-- Student Performance Table -->
+    <table class="table table-bordered">
+        <tr>
+            <th>Actual Score</th>
+            <td>{{ actual_score }}</td>
+        </tr>
+        <tr>
+            <th>Predicted Score</th>
+            <td>{{ predicted_score }}</td>
+        </tr>
+        <tr>
+            <th>Stream Average Score</th>
+            <td>{{ student_stream_avg_score }}</td>
+        </tr>
+        <tr>
+            <th>Overall Average Score</th>
+            <td>{{ overall_avg_score }}</td>
+        </tr>
+    </table>
+
+    <!-- Performance Chart -->
+    <img src="{{ url_for('static', filename='results/student_' + reg_no + '_performance_chart.png') }}" alt="Student Performance Chart" class="img-fluid">
+
+    {% if plot_path %}
+       
+        <div class="mt-3">
+            <a href="{{ url_for('static', filename='results/student_' + reg_no + '_performance_chart.png') }}" 
+               class="btn btn-success" download="student_{{ reg_no }}_performance_chart.png">
+                Download Chart
+            </a>
+            <a href="{{ url_for('faculty1.faculty_dashboard') }}" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    {% endif %}
+{% endif %}
+<!-- Download & Back to Dashboard Buttons -->
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>All Student Results</title>
+    <style>
+        /* General Page Style */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/static/images/edu.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .content-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Button */
+        .btn-success {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        /* Hide download button when printing */
+        @media print {
+            .btn-success, a {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="content-wrapper">
+    <h2>All Student Results</h2>
+    <a href="{{ url_for('faculty1.faculty_dashboard') }}">Back to Dashboard</a>
+
+    <!-- Student Results Table -->
+    {{ scores_df.to_html(classes="table table-bordered", index=False) | safe }}
+
+    <!-- PDF Download Button -->
+    <button onclick="downloadPageAsPDF()" class="btn-success">
+        Download Page as PDF
+    </button>
+</div>
+
+<script>
+function downloadPageAsPDF() {
+    window.print();
+}
+</script>
+
+</body>
+</html>

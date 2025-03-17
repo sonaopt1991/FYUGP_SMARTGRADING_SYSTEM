@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamwise Performance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #333;
+        }
+        .plot-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .plot-container img {
+            max-width: 45%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .plot-container img {
+                max-width: 90%;
+            }
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        .dashboard-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .dashboard-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📊 Streamwise Performance</h1>
+
+    <div class="plot-container">
+        <img src="{{ line_plot }}" alt="Line Chart - Streamwise Performance">
+        <img src="{{ bar_plot }}" alt="Bar Chart - Streamwise Performance">
+    </div>
+
+    <h2>📄 Stream Performance Data</h2>
+
+    <table>
+        <tr>
+            <th>Stream</th>
+            <th>Actual Avg Score</th>
+            <th>Predicted Avg Score</th>
+            <th>Student Count</th>
+            <th>Performance Feedback</th>
+        </tr>
+        {% for row in stream_data %}
+        <tr>
+            <td>{{ row["Stream"] }}</td>
+            <td>{{ row["Actual_Avg_Score"] }}</td>
+            <td>{{ row["Predicted_Avg_Score"] }}</td>
+            <td>{{ row["Student_Count"] }}</td>
+            <td>{{ row["Performance_Feedback"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br><br>
+    <a href="{{ url_for('faculty1.faculty_dashboard') }}" class="dashboard-button">⬅️ Back to Dashboard</a>
+
+</body>
+</html>
