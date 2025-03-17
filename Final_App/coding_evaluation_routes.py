@@ -76,38 +76,6 @@ def process_csv(file_path):
         evaluated_data.append({"question": question, "student_code": student_code, "feedback": feedback, "score": score})
 
 
-# @coding_evaluation_bp.route("/", methods=["GET", "POST"])
-# def upload_file():
-#         """Handle file uploads and trigger processing."""
-#     from app import store_scores  # Import inside function to avoid circular import
-#     global evaluated_data
-#     evaluated_data = []  # Reset evaluated data on new upload
-#     total_score=0
-#     if request.method == "POST":
-#         file = request.files.get("file")
-#         if not file or file.filename == "":
-#             return "No file uploaded", 400
-
-#         file_path = os.path.join(UPLOAD_FOLDER, file.filename)
-#         file.save(file_path)
-
-#         process_csv(file_path)
-        
-
-#         if 'username' in session:  
-#             username = session['username']  # Get the username from session
-#             score_file = "score_df.csv"
-#             # Path to your score DataFrame
-#             for eval_data in evaluated_data:
-#                 print(f"Storing score for question: {eval_data['question']}, score: {eval_data['score']}")
-#                 code_score = eval_data["score"]
-#                 total_score += code_score
-#                 # Use store_scores to store MCQ, Essay, and Code scores along with the Total Score
-#                 store_scores(username, mcq_score=None, essay_score=None, Code_score=total_score, score_file=score_file)
-
-#         return redirect(url_for("coding_evaluation.results"))
-
-#     return render_template("index.html",questions=questions)
 @coding_evaluation_bp.route("/", methods=["GET", "POST"])
 def upload_file():
     """Load questions directly and allow response uploads."""
