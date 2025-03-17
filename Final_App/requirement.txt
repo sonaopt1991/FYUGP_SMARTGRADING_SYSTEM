@@ -6,3 +6,4 @@ scikit -learn
 lightgbm
 seaborn
 flask
+transformers
